@@ -3,8 +3,8 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 
 
-UPLOAD_FOLDER = 'keys/'
-ALLOWED_EXTENSIONS = {'asc', 'pgp'}
+UPLOAD_FOLDER = 'files/'
+ALLOWED_EXTENSIONS = {'asc', 'pgp', 'gpg'}
 
 GPG_EXCHANGE = Flask(__name__)
 GPG_EXCHANGE.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
