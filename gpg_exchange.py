@@ -29,7 +29,7 @@ def home():
     return render_template("home.html", files=FILES)
 
 
-@GPG_EXCHANGE.route('/new', methods=['GET', 'POST'])
+@GPG_EXCHANGE.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
