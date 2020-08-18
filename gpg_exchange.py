@@ -1,9 +1,9 @@
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
-import database
+from database import LocalDatabase
 
-upload_database = local_database("localhost", 27017)
+UPLOAD_DATABASE = LocalDatabase("localhost", 27017)
 
 UPLOAD_FOLDER = 'files/'
 ALLOWED_EXTENSIONS = {'asc', 'pgp', 'gpg'}
