@@ -1,5 +1,13 @@
 <!DOCTYPE html>
-<head></head>
-<body> 
-    <h1>Bruh</h1> 
+<body>
+  {% for file in files %}
+  <div>
+    <div class='single_file'>
+      <h1 class='title'>{{ title }}</h1>
+      <h1 class='description'>{{ description }}</h1>
+      <h1 class='email'>{{ email }}</h1>
+      <h1 class='filename'>{{ filename }}</h1>
+    </div>
+  </div>
+  {% endfor %}
 </body>
