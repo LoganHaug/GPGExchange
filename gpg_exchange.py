@@ -9,10 +9,24 @@ ALLOWED_EXTENSIONS = {'asc', 'pgp', 'gpg'}
 GPG_EXCHANGE = Flask(__name__)
 GPG_EXCHANGE.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+FILES = []
+
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def get_data(title, description, email, filename):
+    file_entry = (title, description, email, filename)
+    FILES.append(file_entry)
+
+
+@GPG_EXCHANGE.route('/')
+def home():
+    get_data("title1", "desc1", "email@mail.com", "file.txt")
+    get_data("title2", "desc2", "boomer@mail.com", "test.txt")
+    return render_template("home.html", files=FILES)
 
 
 @GPG_EXCHANGE.route('/upload', methods=['GET', 'POST'])
