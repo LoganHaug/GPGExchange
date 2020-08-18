@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, request, redirect, url_for, render_template
+from flask import Flask, flash, request, redirect, url_for, render_template, send_file
 from werkzeug.utils import secure_filename
 
 
@@ -27,6 +27,12 @@ def home():
     get_data("title1", "desc1", "email@mail.com", "file.txt")
     get_data("title2", "desc2", "boomer@mail.com", "test.txt")
     return render_template("home.html", files=FILES)
+
+
+@GPG_EXCHANGE.route('/files/<string:filename>')
+def get_file(filename):
+    file_path = GPG_EXCHANGE.config['UPLOAD_FOLDER']
+    return send_file(os.path.join(file_path, filename), as_attachment=True)
 
 
 @GPG_EXCHANGE.route('/upload', methods=['GET', 'POST'])
