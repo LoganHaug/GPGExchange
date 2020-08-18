@@ -15,7 +15,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@GPG_EXCHANGE.route('/', methods=['GET', 'POST'])
+@GPG_EXCHANGE.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
