@@ -23,7 +23,7 @@ def get_data(title, description, email, filename):
 
 
 @GPG_EXCHANGE.route('/')
-def all():
+def home():
     get_data("title1", "desc1", "email@mail.com", "file.txt")
     get_data("title2", "desc2", "boomer@mail.com", "test.txt")
     return render_template("home.html", files=FILES)
