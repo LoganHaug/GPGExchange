@@ -1,12 +1,45 @@
 <!DOCTYPE html>
+<head>
+	<style>
+		body {
+			background-color: #222222;
+		}
+		.single_file {
+			width: 90%;
+			background-color: #282828;
+			padding-right: 20px;
+			padding-left: 20px;
+			padding-bottom: 2px;
+			padding-top: 2px;
+			margin: 10px;
+			border-radius: 25px;
+		}
+		.email {
+			font-size: 20px;
+			position: relative;
+			top: 70px;
+			left: 0px;
+			text-align: right;
+		}
+		.description {
+			font-size: 15px;
+			position: relative;
+			top: -60px;
+			left: -20px;
+			text-align: right;
+		}
+	</style>
+</head>
 <body>
-  {% for file in files %}
+  {% for file_entry in files %}
   <div>
     <div class='single_file'>
-      <h1 class='title'>{{ title }}</h1>
-      <h1 class='description'>{{ description }}</h1>
-      <h1 class='email'>{{ email }}</h1>
-      <h1 class='filename'>{{ filename }}</h1>
+      <h1 class='title'>{{ file_entry[0] }}</h1>
+      <h4 class='description'>{{ file_entry[1] }}</h4>
+      <h3 class='email'>{{ file_entry[2] }}</h3>
+	  <a href="files/{{ file_entry[3] }}">
+		  <h1 class='filename'>{{ file_entry[3] }}</h1>
+	  </a>
     </div>
   </div>
   {% endfor %}
